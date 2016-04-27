@@ -1,0 +1,57 @@
+---
+title: "R Markdownのちょいネタ集"
+subtitle: "Tokyo.R #53 LT"
+author: "kazutan"
+date: "2016/4/30"
+output:
+  revealjs::revealjs_presentation:
+    md_extentions: -ascii_identifiers
+    css: "for_revealjs.css"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# はじめに
+
+## 自己紹介
+
+<div class="column1">
+- 比治山大学短期大学部
+- @kazutan
+    - Twitter
+    - GitHub
+    - Qiita
+- http://kz-md.net/
+- http://blog.kz-md.net/
+</div>
+<div class="column2">
+![icon](pics/user.png)
+</div>
+
+## 今日のおはなし
+
+- みんな大好きR Markdown
+- でもそのまま使うだけだともったいない
+- 新機能やちょいネタを時間の限りご紹介
+
+## 補足
+
+- 今回の内容は以下のGitHubリポジトリにまとめています  
+**kazutan/TokyoR53**
+- 以下の環境で動作を確認しています
+    - プレビュー版RStudio(v0.99.1130)
+    - github版rmarkdown(v0.9.5.12)
+    - Mac, Ubuntu環境
+
+# Rmdでタブ機能
+
+# RmdでフローティングTOC
+
+# 新規Rmd作成関数
+
+# RmdでWebサイト作成
+
+# Rmdで簡単ダッシュボード風レイアウト

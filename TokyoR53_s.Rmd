@@ -6,7 +6,8 @@ date: "2016/4/30"
 output:
   revealjs::revealjs_presentation:
     md_extentions: -ascii_identifiers
-    css: "for_revealjs.css"
+    css: "for-revealjs.css"
+    center: true
 ---
 
 ```{r setup, include=FALSE}
@@ -46,7 +47,7 @@ knitr::opts_chunk$set(echo = TRUE)
     - github版rmarkdown(v0.9.5.12)
     - Mac, Ubuntu環境
 
-# Rmdでタブ機能
+# タブ機能
 
 ## タブ機能、ほしくないです?
 
@@ -69,9 +70,9 @@ knitr::opts_chunk$set(echo = TRUE)
     - 見てる方向は近かった、それでいいじゃないですか
     - 泣いてないです
 
-# RmdでフローティングTOC
+# フローティングTOC
 
-## TOC、いいですよね
+## 見出しリスト、いいですよね
 
 - YAMLに`toc: true`でサクッとできる
     - でもトップにしか出てこない
@@ -80,10 +81,61 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 新機能として追加されました
 
-- 
+- YAMLに以下の2行を加えるだけでOK
+    - 日本語見出しの場合には注意が必要
+    - なんかBootstapの機能をmdで実装できる環境になってきた気が
+
 
 # 新規Rmd作成関数
 
+## Rmdファイル、作るの面倒
+
+- Rmdファイルを作成するには…
+    - RStudioでボタンをポチポチ
+    - (たぶん)あるんだろうけど、YAMLは結局書き直すことが多い
+    - 関数の引数で色々指定して、一気に作れるといいのに
+
+## ないならば作る、そ(ry
+
+- `zousan::new_rmd_ja()`
+    - `devtools::install_github("kazutan/zousan")`
+    - オプションで色々指定できます
+    - 完全に私の好みで作ってます
+    - feather requestやpull requestおまちしてます
+        - 他のちゃんとした自作パッケージに移行するかも…
+
 # RmdでWebサイト作成
 
-# Rmdで簡単ダッシュボード風レイアウト
+## Webサイトまでやってよ
+
+- R Markdownには豊富な機能が満載
+- もうどうせならWebサイトまで作ってよ
+    - ひとつひとつrenderするの面倒
+    - できればRStudioでポタン一つでできないの?
+
+## できました
+
+- 以下の環境が必要です
+    - RStudioプレビュー版
+    - rmarkdownパッケージのgithub版
+- 細かい手順はrmarkdown本家ドキュメントを
+    - ()
+    - サンプルは[こちら]()
+    - ソースコードは[こちら]()
+
+# ダッシュボードつくりたい
+
+## はい、できました
+
+- flexdashboardパッケージ
+    - 簡単にダッシュボードレイアウトを作成可能
+    - `devtools::install_github("rstudio/flexdashboard")`
+    - Rmdのテンプレートから新規作成
+    - 詳細は本家のサイト参照
+    - サンプルは[こちら]()
+    - ソースコードは[こちら]()
+
+## Enjoy!
+
+- 本発表のgithubリポジトリ
+    - **kazutan/TokyoR53**

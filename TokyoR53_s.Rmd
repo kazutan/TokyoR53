@@ -173,7 +173,7 @@ output:
         - Rmdのテンプレートから新規作成
     - 詳細は[本家のサイト](http://rstudio.github.io/flexdashboard/)参照
     - サンプルは[こちら](http://kazutan.github.io/TokyoR53/flexdashboard_test.html)
-    - ソースコードは[こちら](https://github.com/kazutan/TokyoR53/flexdashboard_test.Rmd)
+    - ソースコードは[こちら](https://github.com/kazutan/TokyoR53/blob/master/flexdashboard_test.Rmd)
 
 ## Enjoy!
 

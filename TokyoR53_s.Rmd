@@ -57,18 +57,45 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 実装してみた
 
-- (Qiitaの記事)
+- [R Markdownでタブ機能の実装 - Qiita](http://qiita.com/kazutan/items/27aaf29d09d4ddb1b80f)
     - タブ部分はhtmlだけど、それ以外はうまく収まった
     - その他にもBootstrapの機能が使えた
-    - 詳しくは以下のリンクを
-    - ()
 
-## 数日後
+```
+# {.tab-content}
 
-- 本家が(もっとエレガントに)実装した
-    - (本家リンク)
+<ul class="nav nav-tabs">
+  <li class="active">
+  <a href="#tab1" data-toggle="tab">tab1</a>
+  </li>
+  <li role="presentation">
+  <a href="#tab2" data-toggle="tab">tab2</a>
+  </li>
+</ul>
+
+## tab1 {#tab1 .tab-pane .active}
+hogehoge. hogehoge.
+
+
+## tab2 {#tab2 .tab-pane}
+wasshoi! wasshoi!
+```
+
+## 三ヶ月後…
+
+- 本家が(もっとエレガントに)[実装した](http://rmarkdown.rstudio.com/html_document_format.html#tabbed_sections)
+    - javascriptを組み込んでタブ部分を自動生成するっぽい
+    - サンプルは[こちら](https://rpubs.com/kazutan/rmd_v0-9-5_test)
     - 見てる方向は近かった、それでいいじゃないですか
-    - 泣いてないです
+    
+```
+    ## タブセクションのタイトル見出し {.tabset}
+    (タブ前の内容)
+    ### タブその1
+    (タブその1の内容)
+    ### タブその2
+    (タブその2の内容)
+```
 
 # フローティングTOC
 
@@ -82,9 +109,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 新機能として追加されました
 
 - YAMLに以下の2行を加えるだけでOK
+    - 詳しくは[本家ドキュメント](http://rmarkdown.rstudio.com/html_document_format.html#floating_toc)参照
+    - サンプルは[こちら](https://rpubs.com/kazutan/rmd_v0-9-5_test)
     - 日本語見出しの場合には注意が必要
-    - なんかBootstapの機能をmdで実装できる環境になってきた気が
+    - なんかBootstrapの機能をmdで実装できる環境になってきた気が
 
+```
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+```
 
 # 新規Rmd作成関数
 
@@ -102,7 +139,7 @@ knitr::opts_chunk$set(echo = TRUE)
     - オプションで色々指定できます
     - 完全に私の好みで作ってます
     - feather requestやpull requestおまちしてます
-        - 他のちゃんとした自作パッケージに移行するかも…
+        - でも他のちゃんとした自作パッケージに移行するかも…
 
 # RmdでWebサイト作成
 
@@ -118,24 +155,28 @@ knitr::opts_chunk$set(echo = TRUE)
 - 以下の環境が必要です
     - RStudioプレビュー版
     - rmarkdownパッケージのgithub版
-- 細かい手順はrmarkdown本家ドキュメントを
-    - ()
-    - サンプルは[こちら]()
-    - ソースコードは[こちら]()
+- 細かい手順は[rmarkdown本家ドキュメント](http://rmarkdown.rstudio.com/rmarkdown_websites.html)を
+    - ポイントは`_site.yml`
+    - RStudioの**Project Option...**で**build toolsを`Website`に設定**
+        - これでサイトを一発でbuildできるように
+    - サンプルは[こちら](http://kazutan.github.io/rmd_site_test/)
+    - ソースコードは[こちら](https://github.com/kazutan/rmd_site_test)
+        - ここに現在マニュアル作成中…
 
 # ダッシュボードつくりたい
 
-## はい、できました
+## はい、ありました
 
 - flexdashboardパッケージ
     - 簡単にダッシュボードレイアウトを作成可能
     - `devtools::install_github("rstudio/flexdashboard")`
-    - Rmdのテンプレートから新規作成
-    - 詳細は本家のサイト参照
-    - サンプルは[こちら]()
-    - ソースコードは[こちら]()
+        - Rmdのテンプレートから新規作成
+    - 詳細は[本家のサイト](http://rstudio.github.io/flexdashboard/)参照
+    - サンプルは[こちら](http://kazutan.github.io/TokyoR53/flexdashboard_test.html)
+    - ソースコードは[こちら](https://github.com/kazutan/TokyoR53/flexdashboard_test.Rmd)
 
 ## Enjoy!
 
+- 今回のネタに興味がある方は`@kazutan`もしくはr-wakalangの`#rmarkdown`へ
 - 本発表のgithubリポジトリ
     - **kazutan/TokyoR53**

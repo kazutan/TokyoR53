@@ -1,0 +1,110 @@
+---
+title: "ふれっくすだっしゅぼーど"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    md_extensions: -ascii_identifiers
+    self_contained: false
+---
+
+<!-- Learn more about flexdashboard at https://rstudio.github.io/flexdashboard -->
+
+
+```{r setup, include=FALSE}
+# Load packages and initialize data here
+library(flexdashboard)
+```
+
+kableとdatatable比較
+=====
+
+Column 
+-----------------------------------------------------------------------
+
+### irisデータ(そのまま)
+
+```{r}
+knitr::kable(iris)
+```
+
+Column 
+-----------------------------------------------------------------------
+
+### irisデータ(DT)
+
+```{r}
+library(DT)
+datatable(
+  iris, extensions = 'FixedColumns',
+  options = list(
+    scrollX = TRUE,
+    scrollY = 500,
+    scrollCollapse = TRUE
+  )
+)
+```
+
+plotなどテスト
+=====
+
+Column 
+-----------------------------------------------------------------------
+
+### ggplot2テスト
+
+```{r}
+library(ggplot2)
+g <- ggplot(iris, aes(x=Sepal.Length,y=Sepal.Width, group=Species))
+g + geom_point()
+```
+
+
+
+Column 
+-----------------------------------------------------------------------
+
+### leafletテスト
+
+```{r}
+library(leaflet)
+df2 <- data.frame(id=1:200, lng=135+rnorm(1:200), lat=35+rnorm(200))
+leaflet(df2) %>% addTiles() %>% 
+	addMarkers(~lng, ~lat,clusterOptions = markerClusterOptions())
+
+```
+
+### DiagrammeRテスト
+
+```{r}
+library(DiagrammeR)
+
+# Create a simple NDF
+nodes <-
+  create_nodes(nodes = 1:4,
+               type = "number")
+
+# Create a simple EDF
+edges <-
+  create_edges(from = c(1, 1, 3, 1),
+               to = c(2, 3, 4, 4),
+               rel = "related")
+
+# Create the graph object,
+# incorporating the NDF and
+# the EDF, and, providing
+# some global attributes
+graph <-
+  create_graph(
+    nodes_df = nodes,
+    edges_df = edges,
+    graph_attrs = "layout = neato",
+    node_attrs = "fontname = Helvetica",
+    edge_attrs = "color = gray20"
+  )
+
+# View the graph
+render_graph(graph)
+
+```
+

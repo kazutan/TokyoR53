@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Tokyor53 : Tokyo.R #53 でLTした内容のリポジトリです。">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Tokyor53</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kazutan/TokyoR53">View on GitHub</a>
+
+          <h1 id="project_title">Tokyor53</h1>
+          <h2 id="project_tagline">Tokyo.R #53 でLTした内容のリポジトリです。</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/kazutan/TokyoR53/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kazutan/TokyoR53/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="tokyor-53-ltr-markdownのちょいネタ集" class="anchor" href="#tokyor-53-ltr-markdown%E3%81%AE%E3%81%A1%E3%82%87%E3%81%84%E3%83%8D%E3%82%BF%E9%9B%86" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tokyo.R #53 LT「R Markdownのちょいネタ集」</h1>
+
+<p>このリポジトリでは当日発表したスライド、および関連資料をおいてます。</p>
+
+<h2>
+<a id="発表資料" class="anchor" href="#%E7%99%BA%E8%A1%A8%E8%B3%87%E6%96%99" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>発表資料</h2>
+
+<ul>
+<li>スライドは<a href="http://kazutan.github.io/TokyoR53/TokyoR53_s.html">こちら</a>
+</li>
+<li>もとのRmdは<a href="http://github.com/kazutan/TokyoR53/TokyoR53_s.Rmd">こちら</a>
+</li>
+</ul>
+
+<h2>
+<a id="各ネタについて" class="anchor" href="#%E5%90%84%E3%83%8D%E3%82%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>各ネタについて</h2>
+
+<h3>
+<a id="タブ機能について" class="anchor" href="#%E3%82%BF%E3%83%96%E6%A9%9F%E8%83%BD%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>タブ機能について</h3>
+
+<p>rmarkdown v0.9.5から、htmlドキュメント内にタブを組み込めるようになりました。</p>
+
+<p>このタブ機能のベースはbootstrapの機能で、元々rmarkdownにはbootstrapが組み込まれていました。なのでhtmlタグを利用すれば実装可能だったのですが、今回の実装でhtmlタグなしで簡単に使えるようになりました。</p>
+
+<p>クラス付与はPandoc Markdownの機能で行い、タブ部分についてはjavascriptで自動生成するようにしているみたいです。なお<strong>タブ部分に日本語を利用する際には、冒頭のyamlに<code>md_extentions: -ascii_identifiers</code>を追加</strong>するようにしてください。でないと多分コケます。てかRmd全般で、見出し要素に日本語を使うなら多分これいれといた方がいいでしょう</p>
+
+<h3>
+<a id="フローティングtocについて" class="anchor" href="#%E3%83%95%E3%83%AD%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0toc%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>フローティングTOCについて</h3>
+
+<p>これもタブ機能と同様、rmarkdown v0.9.5で実装されました。TOC自体はPandoc Markdownの機能で以前から利用可能でしたが、ころフローティングについてはbootstrapの機能です。注意事項はタブ機能と同一ですので省略します。</p>
+
+<h3>
+<a id="新規rmdファイル作成関数について" class="anchor" href="#%E6%96%B0%E8%A6%8Frmd%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90%E9%96%A2%E6%95%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>新規Rmdファイル作成関数について</h3>
+
+<p>私の使い勝手のために作成しました。なので今のところ個人利用パッケージにおいてます。自分の気の赴くままに編集・更新します。</p>
+
+<h3>
+<a id="rmdでwebサイト作成" class="anchor" href="#rmd%E3%81%A7web%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RmdでWebサイト作成</h3>
+
+<p>実は以前からRmdでWebサイトを作成する方法はあって、その方法も公開されていました。ただそのやり方がちょっと面倒で、buildもしづらいというのがありました。</p>
+
+<p>今回RStudioのプレビュー版で<strong>Project Option...</strong>の<strong>build tools</strong>で、Websiteというのが追加され、まとめてbuildができるようになりました。サイトに関する設定などは<strong>_site.yml</strong>に記述することで色々設定できます。なお、これらをちゃんと読み込んでbuildするためにはgithub版のrmarkdownが必要です。</p>
+
+<p>ここで生成されるサイトのベースデザインはやはりbootstrapです。なのでthemeにbootstrapのテーマを設定すれば各種テーマをあてることができます。またオリジナルのcssフレームワークも設定可能です…が、おそらく相当な検証が必要になるかと思います。特にメニュー周りが。</p>
+
+<h3>
+<a id="ダッシュボード作りたいについて" class="anchor" href="#%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%83%9C%E3%83%BC%E3%83%89%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ダッシュボード作りたいについて</h3>
+
+<p>これはflexdashboardパッケージを利用しています。最大のポイントはRmdファイルひとつだけで完結するところです。</p>
+
+<p>同パッケージをインストールすると、Rmdを新規で作成するときにTempleteに準備されるようになります。まずはこれをそのままknitして確認するといいと思います。</p>
+
+<p>おそらく、これとR Markdownのparameter機能を組み合わせると、恐ろしく有用なコンテンツが作成できるようになります。ダッシュボードはいわゆるレポートなので、例えばある対象に関するレポートをダッシュボードで作ります。ここで対象リストを準備し、それをR Markdownのparamで指定してしまえば…。</p>
+
+<h3>
+<a id="ライセンスについて" class="anchor" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ライセンスについて</h3>
+
+<p>MIT.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Tokyor53 maintained by <a href="https://github.com/kazutan">kazutan</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
